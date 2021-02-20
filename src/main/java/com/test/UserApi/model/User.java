@@ -23,23 +23,24 @@ public class User {
 	private String name;
     @Column
 	private String email;
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "user") 
+    @OneToOne(cascade = CascadeType.ALL) 
 	private MobileNumber mobileNumber;
   
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "user")
+	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 
-	public User(int id, String name,String email,Address address) {
+	public User(int id, String name,String email,MobileNumber mobileNumber,Address address) {
 		
 		this.id = id;
 		this.name = name;
 		this.email=email;
+		this.mobileNumber=mobileNumber;
 		this.address=address;
 	}
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
+		 
 	}
 
 	public int getId() {
@@ -66,8 +67,8 @@ public class User {
 		this.email = email;
 	}
 
-	public MobileNumber getMobileNumber(String MobileNumber) {
-		return getMobileNumber(null) ;
+	public MobileNumber getMobileNumber( ) {
+		return mobileNumber ;
 	}
 
 	public void setMobileNumber(MobileNumber mobileNumber) {
